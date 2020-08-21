@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dan.danbusiness.mapper.MemberPriceEntityMapper">
+  <resultMap id="BaseResultMap" type="com.dan.danbusiness.entity.MemberPriceEntity">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="product_id" jdbcType="INTEGER" property="productId" />
+    <result column="member_level_id" jdbcType="INTEGER" property="memberLevelId" />
+    <result column="member_price" jdbcType="DECIMAL" property="memberPrice" />
+    <result column="member_level_name" jdbcType="VARCHAR" property="memberLevelName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, product_id, member_level_id, member_price, member_level_name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_member_price
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_member_price
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.dan.danbusiness.entity.MemberPriceEntity">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into tb_member_price (product_id, member_level_id, member_price, 
+      member_level_name)
+    values (#{productId,jdbcType=INTEGER}, #{memberLevelId,jdbcType=INTEGER}, #{memberPrice,jdbcType=DECIMAL}, 
+      #{memberLevelName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dan.danbusiness.entity.MemberPriceEntity">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into tb_member_price
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="productId != null">
+        product_id,
+      </if>
+      <if test="memberLevelId != null">
+        member_level_id,
+      </if>
+      <if test="memberPrice != null">
+        member_price,
+      </if>
+      <if test="memberLevelName != null">
+        member_level_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="productId != null">
+        #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="memberLevelId != null">
+        #{memberLevelId,jdbcType=INTEGER},
+      </if>
+      <if test="memberPrice != null">
+        #{memberPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="memberLevelName != null">
+        #{memberLevelName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dan.danbusiness.entity.MemberPriceEntity">
+    update tb_member_price
+    <set>
+      <if test="productId != null">
+        product_id = #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="memberLevelId != null">
+        member_level_id = #{memberLevelId,jdbcType=INTEGER},
+      </if>
+      <if test="memberPrice != null">
+        member_price = #{memberPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="memberLevelName != null">
+        member_level_name = #{memberLevelName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dan.danbusiness.entity.MemberPriceEntity">
+    update tb_member_price
+    set product_id = #{productId,jdbcType=INTEGER},
+      member_level_id = #{memberLevelId,jdbcType=INTEGER},
+      member_price = #{memberPrice,jdbcType=DECIMAL},
+      member_level_name = #{memberLevelName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

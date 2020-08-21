@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dan.danbusiness.mapper.ProductAttributeValueEntityMapper">
+  <resultMap id="BaseResultMap" type="com.dan.danbusiness.entity.ProductAttributeValueEntity">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="product_id" jdbcType="INTEGER" property="productId" />
+    <result column="product_attribute_id" jdbcType="INTEGER" property="productAttributeId" />
+    <result column="input_list" jdbcType="VARCHAR" property="inputList" />
+    <result column="pic" jdbcType="INTEGER" property="pic" />
+  </resultMap>
+  <insert id="insert" parameterType="com.dan.danbusiness.entity.ProductAttributeValueEntity">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into tb_product_attribute_value (product_id, product_attribute_id, input_list, 
+      pic)
+    values (#{productId,jdbcType=INTEGER}, #{productAttributeId,jdbcType=INTEGER}, #{inputList,jdbcType=VARCHAR}, 
+      #{pic,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dan.danbusiness.entity.ProductAttributeValueEntity">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into tb_product_attribute_value
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="productId != null">
+        product_id,
+      </if>
+      <if test="productAttributeId != null">
+        product_attribute_id,
+      </if>
+      <if test="inputList != null">
+        input_list,
+      </if>
+      <if test="pic != null">
+        pic,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="productId != null">
+        #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="productAttributeId != null">
+        #{productAttributeId,jdbcType=INTEGER},
+      </if>
+      <if test="inputList != null">
+        #{inputList,jdbcType=VARCHAR},
+      </if>
+      <if test="pic != null">
+        #{pic,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

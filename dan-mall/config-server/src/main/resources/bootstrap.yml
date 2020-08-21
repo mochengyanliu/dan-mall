@@ -1,0 +1,21 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/mochengyanliu/SpringCloudConfig.git
+          search-paths: dev
+          username: mochengyanliu
+          password: lijun@2020
+      label: master
+eureka:
+  instance:
+    preferIpAddress: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
