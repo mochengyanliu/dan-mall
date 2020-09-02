@@ -15,9 +15,9 @@ import lombok.Data;
 public class AttributePageVO extends PageVO {
 
 
-    @ApiModelProperty(required = false, notes = "商品分类id", example = "1")
+    @ApiModelProperty(notes = "商品分类id")
     private Integer ProductAttributeCategoryId;
 
-    @ApiModelProperty(required = false, notes = "属性类型", example = "0-规格，1-参数")
+    @ApiModelProperty(notes = "属性类型")
     private Integer type;
 }

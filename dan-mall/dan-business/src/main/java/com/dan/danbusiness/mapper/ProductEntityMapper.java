@@ -1,23 +1,35 @@
 package com.dan.danbusiness.mapper;
 
 import com.dan.danbusiness.entity.ProductEntity;
+import com.dan.danbusiness.vo.ProductPageVO;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Mapper
 @Repository
 public interface ProductEntityMapper {
     int deleteByPrimaryKey(Integer id);
 
-    int insert(ProductEntity record);
+    int insert(ProductEntity productEntity);
 
-    int insertSelective(ProductEntity record);
+    int insertSelective(ProductEntity productEntity);
 
     ProductEntity selectByPrimaryKey(Integer id);
 
-    int updateByPrimaryKeySelective(ProductEntity record);
+    int updateByPrimaryKeySelective(ProductEntity productEntity);
 
-    int updateByPrimaryKeyWithBLOBs(ProductEntity record);
+    int updateByPrimaryKeyWithBLOBs(ProductEntity productEntity);
 
-    int updateByPrimaryKey(ProductEntity record);
+    int updateByPrimaryKey(ProductEntity productEntity);
+
+    int selectProductListCount(@Param("productPageVO") ProductPageVO productPageVO);
+
+    List<ProductEntity> selectProductList(@Param("productPageVO") ProductPageVO productPageVO);
+
+    Integer selectPromotionTypeById(Integer id);
+
+    int deleteByPrimaryKeys(@Param("ids") List<String> ids);
 }

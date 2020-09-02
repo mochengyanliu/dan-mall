@@ -11,56 +11,56 @@ import java.util.Date;
 @ApiModel("用户对象")
 public class UserEntity {
 
-    @ApiModelProperty(required = false, notes = "用户ID", example = "1")
+    @ApiModelProperty(notes = "用户ID")
     private Integer id;
 
-    @ApiModelProperty(required = true, notes = "用户真实姓名", example = "王者")
+    @ApiModelProperty(notes = "用户真实姓名")
     private String userName;
 
-    @ApiModelProperty(required = true, notes = "账号", example = "admin")
+    @ApiModelProperty(notes = "账号")
     private String account;
 
-    @ApiModelProperty(required = true, notes = "手机号", example = "17789896767")
+    @ApiModelProperty(notes = "手机号")
     private String phone;
 
-    @ApiModelProperty(required = false, notes = "等级", example = "1")
+    @ApiModelProperty(notes = "等级")
     private Integer levelId;
 
-    @ApiModelProperty(required = true, notes = "昵称", example = "王者荣耀")
+    @ApiModelProperty(notes = "昵称")
     private String nickName;
 
-    @ApiModelProperty(required = true, notes = "状态", example = "1")
+    @ApiModelProperty(notes = "状态")
     private Integer status;
 
-    @ApiModelProperty(required = true, notes = "类型", example = "1")
+    @ApiModelProperty(notes = "类型")
     private Integer type;
 
-    @ApiModelProperty(required = false, notes = "头像", example = "http://localhost:8080")
+    @ApiModelProperty(notes = "头像")
     private String icon;
 
-    @ApiModelProperty(required = false, notes = "性别", example = "1")
+    @ApiModelProperty(notes = "性别")
     private Integer gender;
 
-    @ApiModelProperty(required = false, notes = "生日", example = "2020-02-02")
+    @ApiModelProperty(notes = "生日")
     private Date birthday;
 
-    @ApiModelProperty(required = false, notes = "城市", example = "上海")
+    @ApiModelProperty(notes = "城市")
     private String city;
 
-    @ApiModelProperty(required = false, notes = "工作", example = "程序员")
+    @ApiModelProperty(notes = "工作")
     private String job;
 
-    @ApiModelProperty(required = false, notes = "创建用户", example = "1")
+    @ApiModelProperty(notes = "创建用户")
     private Integer createUser;
 
-    @ApiModelProperty(required = false, notes = "创建时间", example = "")
+    @ApiModelProperty(notes = "创建时间")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createTime;
 
-    @ApiModelProperty(required = false, notes = "更新用户", example = "1")
+    @ApiModelProperty(notes = "更新用户")
     private Integer updateUser;
 
-    @ApiModelProperty(required = false, notes = "更新时间", example = "")
+    @ApiModelProperty(notes = "更新时间")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date updateTime;
 }

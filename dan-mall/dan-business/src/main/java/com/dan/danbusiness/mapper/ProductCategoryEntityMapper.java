@@ -31,4 +31,6 @@ public interface ProductCategoryEntityMapper {
     List<ProductCategoryEntity> selectProductCategoryList(@Param("productCategoryPageVO") ProductCategoryPageVO productCategoryPageVO);
 
     List<ProductCategoryEntity> selectProductCategoryTree();
+
+    int deleteByPrimaryKeys(@Param("ids") List<String> ids);
 }

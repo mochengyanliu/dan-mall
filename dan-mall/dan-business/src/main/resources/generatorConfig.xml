@@ -94,12 +94,12 @@
 <!--            &lt;!&ndash; 数据库表主键 &ndash;&gt;-->
 <!--            <generatedKey column="id" sqlStatement="Mysql" identity="true" />-->
 <!--        </table>-->
-<!--        <table tableName="tb_product" domainObjectName="ProductEntity" enableCountByExample="false" enableUpdateByExample="false"-->
-<!--               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">-->
-<!--            <property name="useActualColumnNames" value="false" />-->
-<!--            &lt;!&ndash; 数据库表主键 &ndash;&gt;-->
-<!--            <generatedKey column="id" sqlStatement="Mysql" identity="true" />-->
-<!--        </table>-->
+        <table tableName="tb_product" domainObjectName="ProductEntity" enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+            <property name="useActualColumnNames" value="false" />
+            <!-- 数据库表主键 -->
+            <generatedKey column="id" sqlStatement="Mysql" identity="true" />
+        </table>
 <!--        <table tableName="tb_product_attribute_value" domainObjectName="ProductAttributeValueEntity" enableCountByExample="false" enableUpdateByExample="false"-->
 <!--               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">-->
 <!--            <property name="useActualColumnNames" value="false" />-->

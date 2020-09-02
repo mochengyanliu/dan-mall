@@ -24,4 +24,6 @@ public interface ProductCategoryService {
     List<ProductCategoryDTO> selectProductCategoryTree();
 
     List<ProductCategoryEntity> selectAllProductCategory();
+
+    int deleteProductCategory(String ids);
 }

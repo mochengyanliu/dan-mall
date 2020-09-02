@@ -90,4 +90,9 @@
       price = #{price,jdbcType=DECIMAL}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <delete id="deleteSpecialPromotionByProductId" parameterType="java.lang.Integer">
+    delete from tb_special_promotion
+    where product_id = #{productId,jdbcType=INTEGER}
+  </delete>
 </mapper>

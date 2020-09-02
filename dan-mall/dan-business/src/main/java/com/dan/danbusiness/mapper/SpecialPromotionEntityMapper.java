@@ -18,4 +18,6 @@ public interface SpecialPromotionEntityMapper {
     int updateByPrimaryKeySelective(SpecialPromotionEntity record);
 
     int updateByPrimaryKey(SpecialPromotionEntity record);
+
+    int deleteSpecialPromotionByProductId(Integer productId);
 }

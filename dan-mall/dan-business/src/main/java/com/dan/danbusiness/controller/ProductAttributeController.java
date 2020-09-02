@@ -103,7 +103,7 @@ public class ProductAttributeController {
 
     @EagleEye(desc = "删除商品属性")
     @RequestMapping(value = "/deleteProductAttribute", method = RequestMethod.POST)
-    @ApiOperation(value = "删除商品属性", notes = "商品分类id：attributeCategoryId,属性id集合：ids,商品分类类型：type")
+    @ApiOperation(value = "删除商品属性", notes = "商品属性Id集合")
     public BaseResponseModel<Object> deleteProductAttribute(@RequestBody BaseRequestModel request) {
         BaseResponseModel<Object> response = new BaseResponseModel<>();
         int count = productAttributeService.deleteProductAttribute(
@@ -122,7 +122,7 @@ public class ProductAttributeController {
 
     @EagleEye(desc = "查询所有商品属性并分类")
     @RequestMapping(value = "/selectAllProductAttributeClassify", method = RequestMethod.POST)
-    @ApiOperation(value = "删除商品属性", notes = "商品分类id：productAttributeCategoryId")
+    @ApiOperation(value = "查询所有商品属性并分类", notes = "商品分类id：productAttributeCategoryId")
     public BaseResponseModel<Object> selectAllProductAttributeClassify(@RequestBody BaseRequestModel request) {
         BaseResponseModel<Object> response = new BaseResponseModel<>();
         List<ProductAttributeClassifyDTO> productAttributeClassifyDTOS = productAttributeService.selectAllProductAttributeClassify(request.getReqData().getInteger("productAttributeCategoryId"));

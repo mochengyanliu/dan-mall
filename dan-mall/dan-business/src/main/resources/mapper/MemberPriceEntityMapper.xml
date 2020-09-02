@@ -90,4 +90,18 @@
       member_level_name = #{memberLevelName,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <insert id="insertArrayMemberPrice" parameterType="java.util.List">
+    insert into tb_member_price(product_id, member_level_id, member_price,
+    member_level_name) values
+    <foreach collection="memberPriceEntityList" item="item" index="index" separator=",">
+      (#{item.productId,jdbcType=INTEGER}, #{item.memberLevelId,jdbcType=INTEGER}, #{item.memberPrice,jdbcType=DECIMAL},
+      #item.{memberLevelName,jdbcType=VARCHAR})
+    </foreach>
+  </insert>
+
+  <delete id="deleteMemberPriceByProductId" parameterType="java.lang.Integer">
+    delete from tb_member_price
+    where product_id = #{productId,jdbcType=INTEGER}
+  </delete>
 </mapper>

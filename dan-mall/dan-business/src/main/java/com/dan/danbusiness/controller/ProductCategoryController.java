@@ -5,6 +5,7 @@ import com.dan.danbusiness.dto.ProductCategoryDTO;
 import com.dan.danbusiness.entity.ProductCategoryEntity;
 import com.dan.danbusiness.service.ProductCategoryService;
 import com.dan.danbusiness.vo.ProductCategoryPageVO;
+import com.dan.dancommon.base.BaseRequestModel;
 import com.dan.dancommon.base.BaseRequestModelII;
 import com.dan.dancommon.base.BaseResponseModel;
 import com.dan.dancommon.constants.RespCode;
@@ -112,6 +113,22 @@ public class ProductCategoryController {
         response.setRepData(map);
         response.setRepMsg(RespMsg.SUCCESS_MSG);
         response.setRepCode(RespCode.SUCCESS);
+        return response;
+    }
+
+    @EagleEye(desc = "删除商品分类")
+    @RequestMapping(value = "/deleteProductCategory", method = RequestMethod.POST)
+    @ApiOperation(value = "删除商品分类", notes = "商品属性Id集合")
+    public BaseResponseModel<Object> deleteProductCategory(@RequestBody BaseRequestModel request) {
+        BaseResponseModel<Object> response = new BaseResponseModel<>();
+        int count = productCategoryService.deleteProductCategory(request.getReqData().getString("ids"));
+        if (count > 0) {
+            response.setRepCode(RespCode.SUCCESS);
+            response.setRepMsg(RespMsg.SUCCESS_MSG);
+        } else {
+            response.setRepCode(RespCode.DELETE_PRODUCT_ATTRIBUTE_ERROR);
+            response.setRepMsg(RespMsg.DELETE_PRODUCT_ATTRIBUTE_ERROR_MSG);
+        }
         return response;
     }
 }

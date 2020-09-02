@@ -90,4 +90,18 @@
       price = #{price,jdbcType=DECIMAL}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <insert id="insertArrayProductLadder" parameterType="java.util.List">
+    insert into tb_product_ladder(product_id, count, discount,
+    price) values
+    <foreach collection="productLadderEntityList" item="item" index="index" separator=",">
+      (#{item.productId,jdbcType=INTEGER}, #{item.count,jdbcType=INTEGER}, #{item.discount,jdbcType=DECIMAL},
+      #{item.price,jdbcType=DECIMAL})
+    </foreach>
+  </insert>
+
+  <delete id="deleteProductLadderByProductId" parameterType="java.lang.Integer">
+    delete from tb_product_ladder
+    where product_id = #{productId,jdbcType=INTEGER}
+  </delete>
 </mapper>

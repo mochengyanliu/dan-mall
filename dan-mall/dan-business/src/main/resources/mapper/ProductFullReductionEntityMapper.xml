@@ -44,4 +44,16 @@
       </if>
     </trim>
   </insert>
+
+  <insert id="insertArrayProductFullReduction" parameterType="java.util.List">
+    insert into tb_product_full_reduction (product_id, full_price, reduce_price) values
+    <foreach collection="productFullReductionEntityList" item="item" index="index" separator=",">
+      (#{item.productId,jdbcType=INTEGER}, #{item.fullPrice,jdbcType=DECIMAL}, #{item.reducePrice,jdbcType=DECIMAL})
+    </foreach>
+  </insert>
+
+  <delete id="deleteProductFullReductionByProductId" parameterType="java.lang.Integer">
+    delete from tb_product_full_reduction
+    where product_id = #{productId,jdbcType=INTEGER}
+  </delete>
 </mapper>

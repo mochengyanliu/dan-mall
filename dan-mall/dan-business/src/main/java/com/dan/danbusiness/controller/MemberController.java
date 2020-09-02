@@ -63,11 +63,11 @@ public class MemberController {
             response.setRepCode(RespCode.SUCCESS);
             response.setRepMsg(RespMsg.SUCCESS_MSG);
         } else if (count == -1) {
-            response.setRepCode(RespCode.UPDATE_PRODUCT_ATTRIBUTE_REPEAT_ERROR);
-            response.setRepMsg(RespMsg.UPDATE_PRODUCT_ATTRIBUTE_REPEAT_ERROR_MSG);
+            response.setRepCode(RespCode.UPDATE_MEMBER_LEVEL_REPEAT_ERROR);
+            response.setRepMsg(RespMsg.UPDATE_MEMBER_LEVEL_REPEAT_ERROR_MSG);
         } else {
-            response.setRepCode(RespCode.UPDATE_PRODUCT_ATTRIBUTE_ERROR);
-            response.setRepMsg(RespMsg.UPDATE_PRODUCT_ATTRIBUTE_ERROR_MSG);
+            response.setRepCode(RespCode.UPDATE_MEMBER_LEVEL_ERROR);
+            response.setRepMsg(RespMsg.UPDATE_MEMBER_LEVEL_ERROR_MSG);
         }
         return response;
     }
@@ -109,8 +109,8 @@ public class MemberController {
             response.setRepCode(RespCode.SUCCESS);
             response.setRepMsg(RespMsg.SUCCESS_MSG);
         } else {
-            response.setRepCode(RespCode.DELETE_PRODUCT_ATTRIBUTE_ERROR);
-            response.setRepMsg(RespMsg.DELETE_PRODUCT_ATTRIBUTE_ERROR_MSG);
+            response.setRepCode(RespCode.DELETE_MEMBER_LEVEL_ERROR);
+            response.setRepMsg(RespMsg.DELETE_MEMBER_LEVEL_ERROR_MSG);
         }
         return response;
     }

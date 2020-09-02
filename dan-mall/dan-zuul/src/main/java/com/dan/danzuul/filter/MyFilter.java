@@ -252,7 +252,7 @@ public class MyFilter extends com.netflix.zuul.ZuulFilter {
         // 过滤不需要校验token的接口
         StringBuffer buffer = new StringBuffer();
 
-        String reqDate = requestParams.substring(requestParams.indexOf("{", 2), requestParams.indexOf("}", 2) + 1);
+        String reqDate = requestParams.substring(requestParams.indexOf("{", 2), requestParams.lastIndexOf("}", requestParams.lastIndexOf("}") - 1) + 1);
         if (Pattern.matches(buffer.toString(), requestUrl)) {
             baseSignMsg = "reqData=" + reqDate + "&time=" + jsonObject.get("time");
         } else {

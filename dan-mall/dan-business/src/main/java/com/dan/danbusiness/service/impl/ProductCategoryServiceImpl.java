@@ -6,10 +6,12 @@ import com.dan.danbusiness.mapper.ProductCategoryEntityMapper;
 import com.dan.danbusiness.service.ProductCategoryService;
 import com.dan.danbusiness.vo.ProductCategoryPageVO;
 import com.dan.dancommon.util.PageUtil;
+import com.dan.dancommon.util.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -73,6 +75,15 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
     @Override
     public List<ProductCategoryEntity> selectAllProductCategory() {
         return productCategoryEntityMapper.selectProductCategoryTree();
+    }
+
+    @Override
+    public int deleteProductCategory(String ids) {
+        if (StringUtil.isEmpty(ids, true)) {
+            return -1;
+        }
+        List<String> list = Arrays.asList(ids.split(","));
+        return productCategoryEntityMapper.deleteByPrimaryKeys(list);
     }
 
     /**

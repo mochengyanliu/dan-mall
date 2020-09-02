@@ -160,4 +160,20 @@
       sale = #{sale,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <insert id="insertArraySkuStock" parameterType="java.util.List">
+    insert into tb_sku_stock(product_id, sku_code, price,
+    stock, low_stock, sp1,
+    sp2, sp3, pic, sale) values
+    <foreach collection="skuStockEntityList" item="item" index="index" separator=",">
+      (#{item.productId,jdbcType=INTEGER}, #{item.skuCode,jdbcType=VARCHAR}, #{item.price,jdbcType=DECIMAL},
+      #{item.stock,jdbcType=INTEGER}, #{item.lowStock,jdbcType=INTEGER}, #{item.sp1,jdbcType=VARCHAR},
+      #{item.sp2,jdbcType=VARCHAR}, #{item.sp3,jdbcType=VARCHAR}, #{item.pic,jdbcType=VARCHAR}, #{item.sale,jdbcType=INTEGER})
+    </foreach>
+  </insert>
+
+  <delete id="deleteSkuStockByProductId" parameterType="java.lang.Integer">
+    delete from tb_sku_stock
+    where product_id = #{productId,jdbcType=INTEGER}
+  </delete>
 </mapper>
