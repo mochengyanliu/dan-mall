@@ -1,8 +1,8 @@
 FROM java:8
 
-RUN mkdir /app
-
-WORKDIR /app
+ARG workdir=/app
+VOLUME ${workdir}
+WORKDIR ${workdir}
 
 # 拷贝文件到容器，也可以直接写成ADD gubo-server-eureka.jar.jar /app/app.jar
 ADD eureka-server-0.0.1-SNAPSHOT.jar  /app/eureka-server.jar
