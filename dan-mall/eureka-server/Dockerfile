@@ -5,7 +5,7 @@ VOLUME ${workdir}
 WORKDIR ${workdir}
 
 # 拷贝文件到容器，也可以直接写成ADD gubo-server-eureka.jar.jar /app/app.jar
-ADD eureka-server-0.0.1-SNAPSHOT.jar  /app/eureka-server.jar
+ADD /app/eureka-server-0.0.1-SNAPSHOT.jar  /app/eureka-server.jar
 
 
 # 配置容器启动后执行的命令
