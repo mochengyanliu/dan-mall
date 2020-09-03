@@ -2,7 +2,7 @@ FROM java:8
 
 VOLUME /tmp
 
-# 拷贝文件到容器，也可以直接写成ADD gubo-server-eureka.jar.jar /app/app.jar
+# 拷贝文件到容器
 ADD eureka-server-0.0.1-SNAPSHOT.jar  eureka-server.jar
 
 RUN bash -c 'touch /eureka-server.jar'
