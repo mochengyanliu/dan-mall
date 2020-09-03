@@ -2,9 +2,9 @@
 <configuration debug="false">
     <!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径 -->
         <property name="LOG_HOME" value="/app/eureka-server/logs" />
-<!--    <property name="LOG_HOME" value="/Users/lijun/logs/admin-server/logs" />-->
+<!--    <property name="LOG_HOME" value="/Users/lijun/logs/eureka-server/logs" />-->
 
-    <property name="PROJECT_HOME" value="admin-server" />
+    <property name="PROJECT_HOME" value="eureka-server" />
     <!-- 控制台输出 -->
     <appender name="STDOUT"
               class="ch.qos.logback.core.ConsoleAppender">
